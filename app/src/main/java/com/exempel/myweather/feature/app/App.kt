@@ -1,11 +1,11 @@
-package com.exempel.myweather
+package com.exempel.myweather.feature.app
 
 import android.app.Application
 import com.yandex.mapkit.MapKitFactory
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class App: Application(){
+internal class App: Application(){
     override fun onCreate() {
         super.onCreate()
         MapKitFactory.setApiKey("a891bea6-dcfb-41c7-84a8-f7bfb9aa1883")
