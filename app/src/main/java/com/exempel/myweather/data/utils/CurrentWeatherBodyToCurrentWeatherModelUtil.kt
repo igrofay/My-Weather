@@ -12,6 +12,7 @@ internal fun CurrentWeatherBody.toCurrentWeatherModel() : CurrentWeatherModel{
         name = location.name,
         tzId = location.tzId,
         region = location.region,
+        urlImage = "https://static-maps.yandex.ru/1.x/?ll=${location.lon},${location.lat}&spn=0.3,0.3&l=map&size=650,450"
     )
     val airQualityBody = current.airQuality
     val airQualityModel = AirQualityModel(

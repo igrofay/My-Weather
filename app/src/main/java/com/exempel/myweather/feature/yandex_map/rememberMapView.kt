@@ -1,6 +1,7 @@
 package com.exempel.myweather.feature.yandex_map
 
 import android.content.Context
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
@@ -15,7 +16,7 @@ import com.yandex.mapkit.mapview.MapView
 internal fun rememberMapViewWithLifeCycle(): MapView {
     val context = LocalContext.current
     val mapView = remember { MapView(context) }
-    val lifeCycleObserver = rememberLifeCycleObserver(mapView)
+    val lifeCycleObserver = rememberLifeCycleObserver(mapView, context)
     val lifeCycle = LocalLifecycleOwner.current.lifecycle
     DisposableEffect(lifeCycle) {
         lifeCycle.addObserver(lifeCycleObserver)
@@ -27,11 +28,11 @@ internal fun rememberMapViewWithLifeCycle(): MapView {
 }
 
 @Composable
-private fun rememberLifeCycleObserver(mapView: MapView): LifecycleEventObserver = remember(mapView) {
-    LifecycleEventObserver { source, event ->
+private fun rememberLifeCycleObserver(mapView: MapView, context: Context): LifecycleEventObserver = remember(mapView) {
+    LifecycleEventObserver {_, event ->
         when(event) {
             Lifecycle.Event.ON_CREATE ->{
-                MapKitFactory.initialize(source as Context)
+                MapKitFactory.initialize(context)
             }
             Lifecycle.Event.ON_START -> {
                 MapKitFactory.getInstance().onStart()

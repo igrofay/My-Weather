@@ -7,4 +7,5 @@ data class LocationModel(
     val name: String,
     val tzId: String,
     val region: String,
+    val urlImage: String,
 )

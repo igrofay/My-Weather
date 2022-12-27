@@ -13,6 +13,6 @@ internal class WeatherApi @Inject constructor(
 ){
     private val defaultParameters = "?key=694fcedae44e43a5a01190321221812&aqi=yes"
     suspend fun getCurrentWeather(location:String, lang: String): CurrentWeatherBody{
-        return httpClient.get("/current.json$defaultParameters&q=$location&lang=$lang").body()
+        return httpClient.get("/v1/current.json$defaultParameters&q=$location&lang=$lang").body()
     }
 }

@@ -23,7 +23,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object SourceModule {
 //    private const val keySharedPreferences = "MyWeatherSharedPreferences"
-    private const val urlServer = "https://api.weatherapi.com/v1"
+    private const val urlServer = "https://api.weatherapi.com/"
     @Provides
     @Singleton
     fun provideHttpClient() : HttpClient {

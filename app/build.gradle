@@ -67,6 +67,8 @@ dependencies {
     // view model
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    //Navigation
+    implementation "androidx.navigation:navigation-compose:2.5.3"
     // Hilt
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
     implementation "com.google.dagger:hilt-android:2.44.2"
@@ -84,4 +86,6 @@ dependencies {
     implementation "io.ktor:ktor-client-logging:$ktor_version"
     implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
     implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
+    //Glide
+    implementation "com.github.skydoves:landscapist-glide:2.0.0"
 }
